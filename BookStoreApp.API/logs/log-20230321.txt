@@ -1,0 +1,87 @@
+2023-03-21 11:29:44.493 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-21 11:29:44.563 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-21 11:29:44.569 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-21 11:29:44.571 +01:00 [INF] Hosting environment: Development
+2023-03-21 11:29:44.572 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-21 11:29:45.753 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-21 11:29:47.406 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 1673.0212ms
+2023-03-21 11:29:47.420 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-21 11:29:47.439 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 19.0478ms
+2023-03-21 11:29:48.056 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-21 11:29:48.252 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 195.7264ms
+2023-03-21 11:29:49.771 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-21 11:29:50.042 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 270.3223ms
+2023-03-21 11:29:57.292 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/WeatherForecast - -
+2023-03-21 11:29:57.316 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.WeatherForecastController.Get (BookStoreApp.API)'
+2023-03-21 11:29:57.335 +01:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[BookStoreApp.API.WeatherForecast] Get() on controller BookStoreApp.API.Controllers.WeatherForecastController (BookStoreApp.API).
+2023-03-21 11:29:57.341 +01:00 [INF] GetWeatherForecast called
+2023-03-21 11:29:57.341 +01:00 [ERR] Fatal error occur
+System.Exception: This is a our logging test
+   at BookStoreApp.API.Controllers.WeatherForecastController.Get() in C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\Controllers\WeatherForecastController.cs:line 27
+2023-03-21 11:29:57.369 +01:00 [INF] Executed action BookStoreApp.API.Controllers.WeatherForecastController.Get (BookStoreApp.API) in 21.1604ms
+2023-03-21 11:29:57.373 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.WeatherForecastController.Get (BookStoreApp.API)'
+2023-03-21 11:29:57.377 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: This is a our logging test
+   at BookStoreApp.API.Controllers.WeatherForecastController.Get() in C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\Controllers\WeatherForecastController.cs:line 27
+   at lambda_method2(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-03-21 11:29:57.411 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/WeatherForecast - - - 500 - text/plain;+charset=utf-8 119.3268ms
+2023-03-21 11:35:13.700 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-21 11:35:13.752 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-21 11:35:13.758 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-21 11:35:13.759 +01:00 [INF] Hosting environment: Development
+2023-03-21 11:35:13.760 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-21 11:35:14.144 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-21 11:35:14.538 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 399.2584ms
+2023-03-21 11:35:15.171 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-21 11:35:15.177 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 5.9175ms
+2023-03-21 11:35:15.228 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-21 11:35:15.263 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 35.1623ms
+2023-03-21 11:35:16.958 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-21 11:35:17.117 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 159.0479ms
+2023-03-21 11:36:04.891 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5174/ - -
+2023-03-21 11:36:04.906 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5174/ - - - 307 0 - 15.3055ms
+2023-03-21 11:36:04.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-21 11:36:04.933 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 8.1750ms
+2023-03-21 11:36:07.639 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-21 11:36:07.643 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 4.3003ms
+2023-03-21 11:36:13.460 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-21 11:36:13.467 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 7.1341ms
+2023-03-21 11:36:15.416 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-21 11:36:15.421 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 4.5701ms
+2023-03-21 11:36:15.782 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-21 11:36:15.784 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 1.7898ms
+2023-03-21 11:36:16.028 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-21 11:36:16.034 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 5.9553ms
+2023-03-21 11:36:16.369 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-21 11:36:16.374 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 4.0863ms
+2023-03-21 11:36:22.278 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-21 11:36:22.297 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 19.1792ms
+2023-03-21 11:36:22.426 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-21 11:36:22.426 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-21 11:36:22.436 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 9.8286ms
+2023-03-21 11:36:22.487 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.4977ms
+2023-03-21 11:36:37.660 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-21 11:36:37.679 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 19.8027ms
+2023-03-21 11:36:37.773 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-21 11:36:37.775 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-21 11:36:37.780 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 4.9797ms
+2023-03-21 11:36:37.807 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.0936ms
+2023-03-21 11:36:39.117 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-21 11:36:39.129 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 11.7417ms
