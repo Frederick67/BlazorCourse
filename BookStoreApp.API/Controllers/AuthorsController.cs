@@ -17,11 +17,13 @@ namespace BookStoreApp.API.Controllers
     {
         private readonly BookStoreDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ILogger<AuthorsController> _logger;
 
-        public AuthorsController(BookStoreDbContext context, IMapper mapper)
+        public AuthorsController(BookStoreDbContext context, IMapper mapper, ILogger<AuthorsController> logger)
         {
             _context = context;
             _mapper = mapper;
+            _logger = logger;
 
         }
 
@@ -29,8 +31,17 @@ namespace BookStoreApp.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AuthorRealyOnlyDto>>> GetAuthors()
         {
-            var authors = _mapper.Map<IEnumerable<AuthorRealyOnlyDto>>(await _context.Authors.ToListAsync());
-            return Ok(authors);
+            _logger.LogInformation("GET in {nameof(GetAuthors)}");
+            try
+            {
+                var authors = _mapper.Map<IEnumerable<AuthorRealyOnlyDto>>(await _context.Authors.ToListAsync());
+                return Ok(authors);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, $"Error Performing GET in {nameof(GetAuthors)}");
+                return BadRequest(ex);
+            }
         }
 
         // GET: api/Authors/5

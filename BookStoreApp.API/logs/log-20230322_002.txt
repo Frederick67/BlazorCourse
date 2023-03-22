@@ -1,0 +1,31 @@
+2023-03-22 12:08:24.030 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 12:08:26.278 +01:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 12:08:26.354 +01:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 12:08:26.371 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 12:08:26.374 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 12:08:26.431 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-22 12:08:26.508 +01:00 [INF] Applying migration '20230322110804_update1'.
+2023-03-22 12:08:26.871 +01:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM [AspNetUsers]
+WHERE [Id] = N'a7e870c6-5908-4af1-9706-d6135d64d50b';
+SELECT @@ROWCOUNT;
+2023-03-22 12:09:03.659 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:09:03.715 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:09:03.723 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:09:03.725 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:09:03.727 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:09:04.130 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:09:04.679 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 554.7824ms
+2023-03-22 12:09:04.788 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:09:04.801 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 12.0343ms
+2023-03-22 12:09:04.992 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:09:05.065 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 73.1654ms
+2023-03-22 12:09:06.423 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:09:07.133 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 710.0176ms

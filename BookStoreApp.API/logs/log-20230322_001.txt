@@ -1,0 +1,14 @@
+2023-03-22 12:08:00.993 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 12:08:19.132 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:08:19.358 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:08:19.454 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:08:19.549 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:08:19.623 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:08:19.849 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:08:21.081 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 1250.5734ms
+2023-03-22 12:08:21.251 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:08:21.251 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:08:21.263 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 12.4055ms
+2023-03-22 12:08:21.437 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 186.5733ms
+2023-03-22 12:08:23.162 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:08:23.789 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 626.6806ms

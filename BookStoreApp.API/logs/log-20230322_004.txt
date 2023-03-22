@@ -1,0 +1,152 @@
+2023-03-22 12:09:18.509 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 12:09:20.606 +01:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 12:09:20.656 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 12:09:20.661 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 12:09:20.661 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 12:09:20.688 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-22 12:09:20.720 +01:00 [INF] Applying migration '20230322110907_addIdentityTables'.
+2023-03-22 12:09:20.912 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2023-03-22 12:09:20.915 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2023-03-22 12:09:20.924 +01:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Authors] (
+    [Id] int NOT NULL IDENTITY,
+    [FirstName] nvarchar(50) NULL,
+    [LastName] nvarchar(50) NULL,
+    [Bio] nvarchar(250) NULL,
+    CONSTRAINT [PK__Authors__3214EC073BB482C0] PRIMARY KEY ([Id])
+);
+2023-03-22 12:09:55.777 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:09:55.988 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:09:56.011 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:09:56.019 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:09:56.024 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:09:56.208 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:09:57.193 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 994.4839ms
+2023-03-22 12:09:57.364 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:09:57.376 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 12.3128ms
+2023-03-22 12:09:57.774 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:09:57.908 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 133.6620ms
+2023-03-22 12:09:59.353 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:09:59.925 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 572.4072ms
+2023-03-22 12:10:26.621 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7236/api/Auth/login application/json 71
+2023-03-22 12:10:26.649 +01:00 [INF] CORS policy execution successful.
+2023-03-22 12:10:26.674 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 12:10:26.781 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 12:10:28.377 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 12:10:30.115 +01:00 [INF] Executed DbCommand (62ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 12:10:30.155 +01:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-03-22 12:10:30.167 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 3372.8843ms
+2023-03-22 12:10:30.169 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 12:10:30.177 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7236/api/Auth/login application/json 71 - 404 - application/problem+json;+charset=utf-8 3556.2201ms
+2023-03-22 12:10:44.522 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7236/api/Auth/login application/json 63
+2023-03-22 12:10:44.531 +01:00 [INF] CORS policy execution successful.
+2023-03-22 12:10:44.537 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 12:10:44.542 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 12:10:44.744 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 12:10:44.783 +01:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 12:10:44.794 +01:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-03-22 12:10:44.797 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 246.8959ms
+2023-03-22 12:10:44.806 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 12:10:44.809 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7236/api/Auth/login application/json 63 - 404 - application/problem+json;+charset=utf-8 287.2413ms
+2023-03-22 12:11:21.465 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7236/api/Auth/register application/json 121
+2023-03-22 12:11:21.469 +01:00 [INF] CORS policy execution successful.
+2023-03-22 12:11:21.471 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Register (BookStoreApp.API)'
+2023-03-22 12:11:21.492 +01:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(BookStoreApp.API.Models.User.UserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 12:11:21.707 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 12:11:21.767 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-03-22 12:11:22.108 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2023-03-22 12:11:22.154 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-03-22 12:11:22.206 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE ([a].[UserId] = @__p_0) AND ([a].[RoleId] = @__p_1)
+2023-03-22 12:11:22.213 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-03-22 12:11:22.228 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-03-22 12:11:22.251 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2023-03-22 12:11:22.275 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@p16='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2023-03-22 12:11:22.283 +01:00 [INF] Executing AcceptedResult, writing value of type 'null'.
+2023-03-22 12:11:22.285 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Register (BookStoreApp.API) in 786.8792ms
+2023-03-22 12:11:22.286 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Register (BookStoreApp.API)'
+2023-03-22 12:11:22.287 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7236/api/Auth/register application/json 121 - 202 0 - 821.9319ms
+2023-03-22 12:12:59.354 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:12:59.368 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 13.8318ms
+2023-03-22 12:12:59.471 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:12:59.476 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 5.5372ms
+2023-03-22 12:13:00.004 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:13:00.032 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.2494ms
+2023-03-22 12:13:01.108 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:13:01.133 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 25.2067ms
+2023-03-22 12:13:06.907 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:13:06.915 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 8.6274ms
+2023-03-22 12:34:33.903 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-22 12:34:33.924 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 21.0093ms
+2023-03-22 12:34:40.446 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-22 12:34:40.452 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 5.5463ms
+2023-03-22 12:34:53.031 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/user/register - -
+2023-03-22 12:34:53.041 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/user/register - - - 404 0 - 9.8464ms
+2023-03-22 12:35:46.612 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-22 12:35:46.618 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 6.2169ms
+2023-03-22 12:35:48.571 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/ - -
+2023-03-22 12:35:48.575 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/ - - - 404 0 - 4.7152ms

@@ -1,0 +1,273 @@
+2023-03-22 12:10:00.437 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 12:10:02.255 +01:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 12:10:02.298 +01:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 12:10:02.303 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 12:10:02.304 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 12:10:02.326 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-22 12:10:02.353 +01:00 [INF] Applying migration '20230322110907_addIdentityTables'.
+2023-03-22 12:10:02.508 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2023-03-22 12:10:02.511 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2023-03-22 12:10:02.513 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 12:10:02.516 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 12:10:02.519 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 12:10:02.521 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 12:10:02.523 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 12:10:02.552 +01:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'a7e870c6-5908-4af1-9706-d6135d64d50b', N'71e057c1-7767-468f-82fa-7cb9da522e0b', N'Administrator', N'ADMINISTRATOR'),
+(N'e32ee6db-a7e7-4d64-9fd6-032c0460e5f0', N'cc859431-af8e-4c2d-8f61-fa5a28c8a982', N'User', N'USER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+2023-03-22 12:10:02.976 +01:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FirstName', N'LastName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (N'377a5c55-a855-419c-93c5-b4bae9ac44e1', 0, N'67a982db-7143-4ce6-b92c-b96f345883fd', N'admin@bookstore.com', CAST(0 AS bit), N'System', N'Admin', CAST(0 AS bit), NULL, NULL, NULL, N'AQAAAAEAACcQAAAAEOeFU9qvfoOMNlfDQkTXdEvAdpoRBkkFAwH6hIgthl85OvmP6Hw6CJliRQoCgG5E4w==', NULL, CAST(0 AS bit), N'e78a94cc-314b-408c-b282-2ad6ea32b3e7', CAST(0 AS bit), N'admin@bookstore.com'),
+(N'c0ca56cb-6762-450c-b618-bf9219c28dbf', 0, N'6e5d4e3d-cee2-4b7f-9e75-7586295016ec', N'user@bookstore.com', CAST(0 AS bit), N'System', N'User', CAST(0 AS bit), NULL, NULL, NULL, N'AQAAAAEAACcQAAAAECrS+C9kLlljIroWkQVpVQfE/PZPUGJ5AHrXcsnEQ1OIekV54JMJKxmPQ5JWlrgY9A==', NULL, CAST(0 AS bit), N'21d36fdf-4c22-4d59-a368-941c50040586', CAST(0 AS bit), N'user@bookstore.com');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FirstName', N'LastName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+2023-03-22 12:10:02.994 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'a7e870c6-5908-4af1-9706-d6135d64d50b', N'377a5c55-a855-419c-93c5-b4bae9ac44e1');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+2023-03-22 12:10:03.011 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'e32ee6db-a7e7-4d64-9fd6-032c0460e5f0', N'c0ca56cb-6762-450c-b618-bf9219c28dbf');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+2023-03-22 12:10:03.012 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2023-03-22 12:10:03.038 +01:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2023-03-22 12:10:05.817 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2023-03-22 12:10:05.818 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2023-03-22 12:10:05.824 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2023-03-22 12:10:05.827 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2023-03-22 12:10:05.833 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2023-03-22 12:10:05.835 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322110907_addIdentityTables', N'6.0.0');
+2023-03-22 12:35:55.213 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:35:55.275 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:35:55.281 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:35:55.282 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:35:55.283 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:35:56.349 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:35:56.985 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 639.5907ms
+2023-03-22 12:35:57.137 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:35:57.153 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 15.2043ms
+2023-03-22 12:35:58.248 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:35:58.332 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 84.0914ms
+2023-03-22 12:36:02.496 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:36:02.910 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 414.3582ms
+2023-03-22 12:36:10.107 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:36:10.174 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/swagger - -
+2023-03-22 12:36:10.232 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:36:10.232 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:36:10.510 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/swagger/index.html - -
+2023-03-22 12:36:10.516 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/swagger - - - 301 - - 353.5694ms
+2023-03-22 12:36:10.925 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/swagger/index.html - - - 200 - text/html;charset=utf-8 414.7480ms
+2023-03-22 12:36:11.020 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/swagger/swagger-ui.css - -
+2023-03-22 12:36:11.036 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/swagger/swagger-ui-standalone-preset.js - -
+2023-03-22 12:36:11.051 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:36:11.056 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 4.9237ms
+2023-03-22 12:36:11.060 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-03-22 12:36:11.060 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-03-22 12:36:11.076 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/swagger/swagger-ui.css - - - 200 143632 text/css 55.8733ms
+2023-03-22 12:36:11.079 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/swagger/swagger-ui-bundle.js - -
+2023-03-22 12:36:11.092 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 56.4625ms
+2023-03-22 12:36:11.108 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-03-22 12:36:11.278 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 199.2139ms
+2023-03-22 12:36:11.860 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/_vs/browserLink - -
+2023-03-22 12:36:12.037 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 176.7980ms
+2023-03-22 12:36:12.637 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/swagger/favicon-32x32.png - -
+2023-03-22 12:36:12.638 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-03-22 12:36:12.639 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/swagger/favicon-32x32.png - - - 200 628 image/png 1.9490ms
+2023-03-22 12:36:13.865 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/swagger/v1/swagger.json - -
+2023-03-22 12:36:14.084 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 218.8493ms
+2023-03-22 12:36:17.777 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/user/register - -
+2023-03-22 12:36:17.786 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/user/register - - - 404 - - 9.1357ms
+2023-03-22 12:36:19.534 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/user/register - -
+2023-03-22 12:36:19.538 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/user/register - - - 404 - - 3.9018ms
+2023-03-22 12:36:19.824 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/user/register - -
+2023-03-22 12:36:19.828 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/user/register - - - 404 - - 3.8759ms
+2023-03-22 12:36:19.993 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/user/register - -
+2023-03-22 12:36:19.996 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/user/register - - - 404 - - 2.4653ms
+2023-03-22 12:36:20.263 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44355/user/register - -
+2023-03-22 12:36:20.267 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44355/user/register - - - 404 - - 3.8842ms
+2023-03-22 12:43:11.625 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:43:11.776 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:43:11.791 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:43:11.792 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:43:11.793 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:43:17.561 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:43:17.682 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:43:17.692 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:43:17.712 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:43:17.714 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:43:18.523 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:43:19.089 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 573.0308ms
+2023-03-22 12:43:19.148 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:43:19.155 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 7.6115ms
+2023-03-22 12:43:19.802 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:43:19.845 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.5638ms
+2023-03-22 12:43:21.448 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:43:21.748 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 300.2115ms
+2023-03-22 12:43:38.660 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:43:38.671 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 10.8380ms
+2023-03-22 12:43:38.739 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:43:38.739 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:43:38.742 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 2.7527ms
+2023-03-22 12:43:38.758 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.9683ms
+2023-03-22 12:43:39.953 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:43:39.995 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 41.8779ms
+2023-03-22 12:46:44.853 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:46:44.971 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:46:44.992 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:46:44.996 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:46:45.003 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:46:45.203 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:46:45.736 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 542.1241ms
+2023-03-22 12:46:46.315 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:46:46.325 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 10.4757ms
+2023-03-22 12:46:46.410 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:46:46.443 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 33.0597ms
+2023-03-22 12:46:48.377 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:46:48.641 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 264.2894ms
+2023-03-22 12:47:30.115 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:47:30.188 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:47:30.197 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:47:30.199 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:47:30.200 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:47:30.410 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:47:30.714 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 309.9662ms
+2023-03-22 12:47:30.801 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:47:30.801 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:47:30.809 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 7.8587ms
+2023-03-22 12:47:30.833 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.1376ms
+2023-03-22 12:47:32.729 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:47:32.948 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 218.7357ms
+2023-03-22 12:50:13.601 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:50:13.747 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:50:13.768 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:50:13.770 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:50:13.780 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:50:13.910 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:50:14.509 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 611.2583ms
+2023-03-22 12:50:14.777 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:50:14.777 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:50:14.784 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 7.1334ms
+2023-03-22 12:50:14.809 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.1743ms
+2023-03-22 12:50:18.084 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:50:18.337 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 253.3256ms
+2023-03-22 12:56:22.947 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:56:23.069 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:56:23.079 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:56:23.083 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:56:23.084 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:56:23.269 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:56:24.387 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 1144.0156ms
+2023-03-22 12:56:24.704 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:56:24.704 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:56:24.725 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 19.9883ms
+2023-03-22 12:56:24.788 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 84.2665ms
+2023-03-22 12:56:30.730 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:56:31.471 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 741.7046ms
+2023-03-22 12:56:56.987 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 12:56:57.101 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 12:56:57.111 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 12:56:57.112 +01:00 [INF] Hosting environment: Development
+2023-03-22 12:56:57.114 +01:00 [INF] Content root path: C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\
+2023-03-22 12:56:57.302 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 12:56:57.715 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 431.0956ms
+2023-03-22 12:56:57.853 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 12:56:57.854 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 12:56:57.872 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 18.4773ms
+2023-03-22 12:56:57.917 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.1187ms
+2023-03-22 12:57:00.538 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 12:57:00.980 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 442.2344ms

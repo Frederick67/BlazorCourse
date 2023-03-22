@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
+using BookStoreApp.API.Models.Book;
+using AutoMapper;
 
 namespace BookStoreApp.API.Controllers
 {
@@ -14,39 +16,39 @@ namespace BookStoreApp.API.Controllers
     public class BooksController : ControllerBase
     {
         private readonly BookStoreDbContext _context;
+        private readonly IMapper _mapper;
 
-        public BooksController(BookStoreDbContext context)
+        public BooksController(BookStoreDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Books
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
+        public async Task<ActionResult<IEnumerable<BookReadOnlyDto>>> GetBooks()
         {
           if (_context.Books == null)
           {
               return NotFound();
           }
-            return await _context.Books.ToListAsync();
+            var books = await _context.Books.ToListAsync();
+            var bookDtos = _mapper.Map<BookReadOnlyDto>(books);
+            return Ok(bookDtos);
         }
 
         // GET: api/Books/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBook(int id)
+        public async Task<ActionResult<BookReadOnlyDto>> GetBook(int id)
         {
-          if (_context.Books == null)
-          {
-              return NotFound();
-          }
             var book = await _context.Books.FindAsync(id);
+            var bookDto = _mapper.Map<BookReadOnlyDto>(book);
 
-            if (book == null)
+            if (bookDto == null)
             {
                 return NotFound();
             }
-
-            return book;
+            return bookDto;
         }
 
         // PUT: api/Books/5
@@ -83,15 +85,11 @@ namespace BookStoreApp.API.Controllers
         // POST: api/Books
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Book>> PostBook(Book book)
+        public async Task<ActionResult<BookCreateDto>> PostBook(BookCreateDto bookDto)
         {
-          if (_context.Books == null)
-          {
-              return Problem("Entity set 'BookStoreDbContext.Books'  is null.");
-          }
+            var book = _mapper.Map<Book>(bookDto);
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
         }
 
