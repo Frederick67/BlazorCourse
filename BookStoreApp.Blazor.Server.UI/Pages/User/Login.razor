@@ -1,5 +1,5 @@
 ﻿@page "/user/login"
-@inject IClient httpClient
+@inject IAuthenticationService authService
 
 
 <h3>Login</h3>
@@ -27,9 +27,18 @@
 @code {
 
     LoginUserDto loginModel = new LoginUserDto();
-    private async Task HandleLogin()
+    public async Task HandleLogin()
     {
-        await httpClient.LoginAsync(loginModel);
+        try
+        {
+            var response = await authService.AuthenticateAsync(loginModel);
+
+        }
+        catch (Exception ex)
+        {
+           
+        }
+    
         
 
     }
