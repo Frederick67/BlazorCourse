@@ -1,5 +1,6 @@
 ﻿@page "/user/login"
 @inject IAuthenticationService authService
+@inject NavigationManager NavigationManager
 
 
 <h3>Login</h3>
@@ -33,10 +34,15 @@
         {
             var response = await authService.AuthenticateAsync(loginModel);
 
+            if(response)
+            {
+                NavigationManager.NavigateTo("/");
+            }
+
         }
         catch (Exception ex)
         {
-           
+            
         }
     
         

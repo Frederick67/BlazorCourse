@@ -59,6 +59,10 @@ namespace BookStoreApp.API.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("NormalizedName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -99,15 +103,17 @@ namespace BookStoreApp.API.Migrations
                         {
                             Id = "377a5c55-a855-419c-93c5-b4bae9ac44e1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "67a982db-7143-4ce6-b92c-b96f345883fd",
+                            ConcurrencyStamp = "e01bec64-57a1-446d-8d29-8134488dcbd9",
                             Email = "admin@bookstore.com",
                             EmailConfirmed = false,
                             FirstName = "System",
                             LastName = "Admin",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEOeFU9qvfoOMNlfDQkTXdEvAdpoRBkkFAwH6hIgthl85OvmP6Hw6CJliRQoCgG5E4w==",
+                            NormalizedEmail = "ADMIN@BOOKSTORE.COM",
+                            NormalizedName = "ADMIN@BOOKSTORE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAELjvosAnaI+DY4EGtw6cqAdoxaoiPvudYguJzuGp4GQ809F4rmQVlQ6MQUXQkNmfqA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e78a94cc-314b-408c-b282-2ad6ea32b3e7",
+                            SecurityStamp = "64d69eef-4f6f-4a2f-b265-2fb7ab91e4d4",
                             TwoFactorEnabled = false,
                             UserName = "admin@bookstore.com"
                         },
@@ -115,15 +121,17 @@ namespace BookStoreApp.API.Migrations
                         {
                             Id = "c0ca56cb-6762-450c-b618-bf9219c28dbf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6e5d4e3d-cee2-4b7f-9e75-7586295016ec",
+                            ConcurrencyStamp = "778e4eef-4e5f-419d-8cbd-7efcb9203cf5",
                             Email = "user@bookstore.com",
                             EmailConfirmed = false,
                             FirstName = "System",
                             LastName = "User",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAECrS+C9kLlljIroWkQVpVQfE/PZPUGJ5AHrXcsnEQ1OIekV54JMJKxmPQ5JWlrgY9A==",
+                            NormalizedEmail = "USER@BOOKSTORE.COM",
+                            NormalizedName = "USER@BOOKSTORE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJdYv8YQOm0oYXQm2ktFe/aq08WT118ZR/3PrOO0pG1aJcUsipMEahYHmktMqKwYpQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "21d36fdf-4c22-4d59-a368-941c50040586",
+                            SecurityStamp = "715349e2-8108-4b84-bbcc-bbde4353ec31",
                             TwoFactorEnabled = false,
                             UserName = "user@bookstore.com"
                         });
@@ -231,14 +239,14 @@ namespace BookStoreApp.API.Migrations
                         new
                         {
                             Id = "e32ee6db-a7e7-4d64-9fd6-032c0460e5f0",
-                            ConcurrencyStamp = "cc859431-af8e-4c2d-8f61-fa5a28c8a982",
+                            ConcurrencyStamp = "36dda550-e541-49f4-8bfb-153fd9bdcff7",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "a7e870c6-5908-4af1-9706-d6135d64d50b",
-                            ConcurrencyStamp = "71e057c1-7767-468f-82fa-7cb9da522e0b",
+                            ConcurrencyStamp = "b4a8d4a0-4126-4ca6-878e-32d8732a8686",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

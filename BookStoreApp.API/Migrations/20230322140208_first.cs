@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookStoreApp.API.Migrations
 {
-    public partial class addIdentityTables : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,21 @@ namespace BookStoreApp.API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Authors",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Bio = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Authors__3214EC073BB482C0", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,14 +171,37 @@ namespace BookStoreApp.API.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Books",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Year = table.Column<int>(type: "int", nullable: true),
+                    ISBN = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Summary = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    AuthorId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Books__3214EC0714F923DB", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Books_ToTable",
+                        column: x => x.AuthorId,
+                        principalTable: "Authors",
+                        principalColumn: "Id");
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "a7e870c6-5908-4af1-9706-d6135d64d50b", "71e057c1-7767-468f-82fa-7cb9da522e0b", "Administrator", "ADMINISTRATOR" },
-                    { "e32ee6db-a7e7-4d64-9fd6-032c0460e5f0", "cc859431-af8e-4c2d-8f61-fa5a28c8a982", "User", "USER" }
+                    { "a7e870c6-5908-4af1-9706-d6135d64d50b", "9c2986a2-a760-413e-bbda-d714412a0426", "Administrator", "ADMINISTRATOR" },
+                    { "e32ee6db-a7e7-4d64-9fd6-032c0460e5f0", "fca7ff88-d32b-441e-b3e5-00f8a1fee1ea", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -171,8 +209,8 @@ namespace BookStoreApp.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "377a5c55-a855-419c-93c5-b4bae9ac44e1", 0, "67a982db-7143-4ce6-b92c-b96f345883fd", "admin@bookstore.com", false, "System", "Admin", false, null, null, null, "AQAAAAEAACcQAAAAEOeFU9qvfoOMNlfDQkTXdEvAdpoRBkkFAwH6hIgthl85OvmP6Hw6CJliRQoCgG5E4w==", null, false, "e78a94cc-314b-408c-b282-2ad6ea32b3e7", false, "admin@bookstore.com" },
-                    { "c0ca56cb-6762-450c-b618-bf9219c28dbf", 0, "6e5d4e3d-cee2-4b7f-9e75-7586295016ec", "user@bookstore.com", false, "System", "User", false, null, null, null, "AQAAAAEAACcQAAAAECrS+C9kLlljIroWkQVpVQfE/PZPUGJ5AHrXcsnEQ1OIekV54JMJKxmPQ5JWlrgY9A==", null, false, "21d36fdf-4c22-4d59-a368-941c50040586", false, "user@bookstore.com" }
+                    { "377a5c55-a855-419c-93c5-b4bae9ac44e1", 0, "e34b8f43-64a9-4bfe-bd94-b5168f929892", "admin@bookstore.com", false, "System", "Admin", false, null, null, null, "AQAAAAEAACcQAAAAEJgm7Mrn4ZRNI9Qx8Ylng4T3y7lbbl0DCmeyKloGBzqkaKLwu5WBPrAz/84i5c0dtw==", null, false, "4e599925-e8fc-4aa9-acba-5876501edafc", false, "admin@bookstore.com" },
+                    { "c0ca56cb-6762-450c-b618-bf9219c28dbf", 0, "a51afe7e-3546-4bf3-901b-45f5d70a80bf", "user@bookstore.com", false, "System", "User", false, null, null, null, "AQAAAAEAACcQAAAAEAvK8hXDhsORkiC/uAnap5ErA8ynPwoo+pdxpZijnSUx6DauRym/mOT9yNjkYcQAsg==", null, false, "c041da8d-caff-4c95-b446-013d3962fe1f", false, "user@bookstore.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -223,6 +261,17 @@ namespace BookStoreApp.API.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_AuthorId",
+                table: "Books",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "UQ__Books__447D36EA9D806A56",
+                table: "Books",
+                column: "ISBN",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

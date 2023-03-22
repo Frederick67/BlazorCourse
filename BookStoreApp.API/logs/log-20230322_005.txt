@@ -271,3 +271,593 @@ VALUES (N'20230322110907_addIdentityTables', N'6.0.0');
 2023-03-22 12:56:57.917 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.1187ms
 2023-03-22 12:57:00.538 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
 2023-03-22 12:57:00.980 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 442.2344ms
+2023-03-22 14:57:32.904 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 14:57:51.355 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 14:57:51.649 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 14:57:51.672 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 14:57:51.674 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 14:57:51.776 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-22 14:57:51.778 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 14:57:51.779 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 14:57:51.789 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-22 14:57:51.804 +01:00 [INF] Applying migration '20230322110907_addIdentityTables'.
+2023-03-22 14:57:51.870 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2023-03-22 14:57:51.872 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2023-03-22 14:57:51.875 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 14:57:51.876 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 14:57:51.879 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 14:57:51.881 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 14:57:51.883 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 14:57:51.912 +01:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'a7e870c6-5908-4af1-9706-d6135d64d50b', N'71e057c1-7767-468f-82fa-7cb9da522e0b', N'Administrator', N'ADMINISTRATOR'),
+(N'e32ee6db-a7e7-4d64-9fd6-032c0460e5f0', N'cc859431-af8e-4c2d-8f61-fa5a28c8a982', N'User', N'USER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+2023-03-22 14:57:52.177 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FirstName', N'LastName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (N'377a5c55-a855-419c-93c5-b4bae9ac44e1', 0, N'67a982db-7143-4ce6-b92c-b96f345883fd', N'admin@bookstore.com', CAST(0 AS bit), N'System', N'Admin', CAST(0 AS bit), NULL, NULL, NULL, N'AQAAAAEAACcQAAAAEOeFU9qvfoOMNlfDQkTXdEvAdpoRBkkFAwH6hIgthl85OvmP6Hw6CJliRQoCgG5E4w==', NULL, CAST(0 AS bit), N'e78a94cc-314b-408c-b282-2ad6ea32b3e7', CAST(0 AS bit), N'admin@bookstore.com'),
+(N'c0ca56cb-6762-450c-b618-bf9219c28dbf', 0, N'6e5d4e3d-cee2-4b7f-9e75-7586295016ec', N'user@bookstore.com', CAST(0 AS bit), N'System', N'User', CAST(0 AS bit), NULL, NULL, NULL, N'AQAAAAEAACcQAAAAECrS+C9kLlljIroWkQVpVQfE/PZPUGJ5AHrXcsnEQ1OIekV54JMJKxmPQ5JWlrgY9A==', NULL, CAST(0 AS bit), N'21d36fdf-4c22-4d59-a368-941c50040586', CAST(0 AS bit), N'user@bookstore.com');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FirstName', N'LastName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+2023-03-22 14:57:52.189 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'a7e870c6-5908-4af1-9706-d6135d64d50b', N'377a5c55-a855-419c-93c5-b4bae9ac44e1');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+2023-03-22 14:57:52.198 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'e32ee6db-a7e7-4d64-9fd6-032c0460e5f0', N'c0ca56cb-6762-450c-b618-bf9219c28dbf');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+2023-03-22 14:57:52.202 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2023-03-22 14:57:52.222 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2023-03-22 14:57:54.190 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2023-03-22 14:57:54.191 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2023-03-22 14:57:54.193 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2023-03-22 14:57:54.196 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2023-03-22 14:57:54.198 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2023-03-22 14:57:54.199 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322110907_addIdentityTables', N'6.0.0');
+2023-03-22 14:57:54.205 +01:00 [INF] Applying migration '20230322135733_first'.
+2023-03-22 14:57:54.225 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'e49a76d5-e8ca-4dde-bf71-909faef60520'
+WHERE [Id] = N'a7e870c6-5908-4af1-9706-d6135d64d50b';
+SELECT @@ROWCOUNT;
+2023-03-22 14:57:54.225 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = N'f53a1a5c-cf53-4252-b5ee-12e76aa4bec4'
+WHERE [Id] = N'e32ee6db-a7e7-4d64-9fd6-032c0460e5f0';
+SELECT @@ROWCOUNT;
+2023-03-22 14:57:54.228 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'57431cb3-cf2f-4679-a44f-fe164a235307', [PasswordHash] = N'AQAAAAEAACcQAAAAEIli0VzXLalyDtIQfYrg4G+bTs1ywon1bMwEVeSwm4NVv9fbxxHKJoNq5/Boc5RApA==', [SecurityStamp] = N'f3ba9bf2-369d-4a7c-941c-911e8cb84fd2'
+WHERE [Id] = N'377a5c55-a855-419c-93c5-b4bae9ac44e1';
+SELECT @@ROWCOUNT;
+2023-03-22 14:57:54.229 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'1041a19d-5ba2-4f12-8236-d5c35a1cfd58', [PasswordHash] = N'AQAAAAEAACcQAAAAEIrw0NP005iNceEDdLEbPLntPFN9O+FuQICG9iYuDexTao47uJosy7dwV0DhQ2Loww==', [SecurityStamp] = N'cb516089-77b2-4a48-88a6-4d9185f72a51'
+WHERE [Id] = N'c0ca56cb-6762-450c-b618-bf9219c28dbf';
+SELECT @@ROWCOUNT;
+2023-03-22 14:57:54.229 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322135733_first', N'6.0.0');
+2023-03-22 15:02:08.286 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 15:02:21.671 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 15:02:21.953 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 15:02:21.975 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 15:02:21.977 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 15:02:22.066 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-03-22 15:02:22.067 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 15:02:22.069 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 15:02:22.072 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-22 15:02:22.085 +01:00 [INF] Applying migration '20230322140208_first'.
+2023-03-22 15:02:22.146 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2023-03-22 15:02:22.155 +01:00 [ERR] Failed executing DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2023-03-22 15:02:40.621 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 15:02:40.888 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 15:02:40.911 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 15:02:40.914 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-03-22 15:02:40.915 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-03-22 15:02:40.924 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-03-22 15:02:40.937 +01:00 [INF] Applying migration '20230322140208_first'.
+2023-03-22 15:02:41.017 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2023-03-22 15:02:41.018 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2023-03-22 15:02:41.019 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Authors] (
+    [Id] int NOT NULL IDENTITY,
+    [FirstName] nvarchar(50) NULL,
+    [LastName] nvarchar(50) NULL,
+    [Bio] nvarchar(250) NULL,
+    CONSTRAINT [PK__Authors__3214EC073BB482C0] PRIMARY KEY ([Id])
+);
+2023-03-22 15:02:41.021 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 15:02:41.023 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 15:02:41.025 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 15:02:41.027 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 15:02:41.030 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2023-03-22 15:02:41.031 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Books] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(50) NULL,
+    [Year] int NULL,
+    [ISBN] nvarchar(50) NOT NULL,
+    [Summary] nvarchar(250) NULL,
+    [Image] nvarchar(50) NULL,
+    [Price] decimal(18,2) NULL,
+    [AuthorId] int NULL,
+    CONSTRAINT [PK__Books__3214EC0714F923DB] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Books_ToTable] FOREIGN KEY ([AuthorId]) REFERENCES [Authors] ([Id])
+);
+2023-03-22 15:02:41.181 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'a7e870c6-5908-4af1-9706-d6135d64d50b', N'9c2986a2-a760-413e-bbda-d714412a0426', N'Administrator', N'ADMINISTRATOR'),
+(N'e32ee6db-a7e7-4d64-9fd6-032c0460e5f0', N'fca7ff88-d32b-441e-b3e5-00f8a1fee1ea', N'User', N'USER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+2023-03-22 15:02:41.197 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FirstName', N'LastName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (N'377a5c55-a855-419c-93c5-b4bae9ac44e1', 0, N'e34b8f43-64a9-4bfe-bd94-b5168f929892', N'admin@bookstore.com', CAST(0 AS bit), N'System', N'Admin', CAST(0 AS bit), NULL, NULL, NULL, N'AQAAAAEAACcQAAAAEJgm7Mrn4ZRNI9Qx8Ylng4T3y7lbbl0DCmeyKloGBzqkaKLwu5WBPrAz/84i5c0dtw==', NULL, CAST(0 AS bit), N'4e599925-e8fc-4aa9-acba-5876501edafc', CAST(0 AS bit), N'admin@bookstore.com'),
+(N'c0ca56cb-6762-450c-b618-bf9219c28dbf', 0, N'a51afe7e-3546-4bf3-901b-45f5d70a80bf', N'user@bookstore.com', CAST(0 AS bit), N'System', N'User', CAST(0 AS bit), NULL, NULL, NULL, N'AQAAAAEAACcQAAAAEAvK8hXDhsORkiC/uAnap5ErA8ynPwoo+pdxpZijnSUx6DauRym/mOT9yNjkYcQAsg==', NULL, CAST(0 AS bit), N'c041da8d-caff-4c95-b446-013d3962fe1f', CAST(0 AS bit), N'user@bookstore.com');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FirstName', N'LastName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+2023-03-22 15:02:41.210 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'a7e870c6-5908-4af1-9706-d6135d64d50b', N'377a5c55-a855-419c-93c5-b4bae9ac44e1');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+2023-03-22 15:02:41.222 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'e32ee6db-a7e7-4d64-9fd6-032c0460e5f0', N'c0ca56cb-6762-450c-b618-bf9219c28dbf');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+2023-03-22 15:02:43.230 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2023-03-22 15:02:43.233 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2023-03-22 15:02:43.233 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2023-03-22 15:02:43.234 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2023-03-22 15:02:43.236 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2023-03-22 15:02:43.238 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2023-03-22 15:02:43.240 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2023-03-22 15:02:43.240 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Books_AuthorId] ON [Books] ([AuthorId]);
+2023-03-22 15:02:43.241 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UQ__Books__447D36EA9D806A56] ON [Books] ([ISBN]);
+2023-03-22 15:02:43.242 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322140208_first', N'6.0.0');
+2023-03-22 15:53:29.765 +01:00 [INF] User profile is available. Using 'C:\Users\gabri\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-22 15:53:29.809 +01:00 [INF] Creating key {cc90d786-9e9e-4c2e-aa73-7037c1f316b3} with creation date 2023-03-22 14:53:29Z, activation date 2023-03-22 14:53:29Z, and expiration date 2023-06-20 14:53:29Z.
+2023-03-22 15:53:29.824 +01:00 [INF] Writing data to file 'C:\Users\gabri\AppData\Local\ASP.NET\DataProtection-Keys\key-cc90d786-9e9e-4c2e-aa73-7037c1f316b3.xml'.
+2023-03-22 15:53:30.215 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 15:53:30.215 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 15:53:30.218 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 15:53:30.218 +01:00 [INF] Hosting environment: Development
+2023-03-22 15:53:30.219 +01:00 [INF] Content root path: G:\Work\BlazorCourse\BookStoreApp.API\
+2023-03-22 15:53:30.909 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger - -
+2023-03-22 15:53:30.987 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger - - - 301 0 - 80.6785ms
+2023-03-22 15:53:30.998 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 15:53:31.153 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 155.0306ms
+2023-03-22 15:53:31.160 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/swagger-ui-standalone-preset.js - -
+2023-03-22 15:53:31.160 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/swagger-ui.css - -
+2023-03-22 15:53:31.161 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/swagger-ui-bundle.js - -
+2023-03-22 15:53:31.160 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 15:53:31.166 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 5.1342ms
+2023-03-22 15:53:31.173 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-03-22 15:53:31.173 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-03-22 15:53:31.175 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/swagger-ui.css - - - 200 143632 text/css 13.9945ms
+2023-03-22 15:53:31.176 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 15.3394ms
+2023-03-22 15:53:31.177 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-03-22 15:53:31.178 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 17.7040ms
+2023-03-22 15:53:31.334 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 15:53:31.403 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 69.7063ms
+2023-03-22 15:53:31.451 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/favicon-32x32.png - -
+2023-03-22 15:53:31.453 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-03-22 15:53:31.454 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/favicon-32x32.png - - - 200 628 image/png 2.4583ms
+2023-03-22 15:53:31.862 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 15:53:31.945 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 82.5150ms
+2023-03-22 16:01:24.438 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 16:01:24.464 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 25.9885ms
+2023-03-22 16:26:33.607 +01:00 [INF] User profile is available. Using 'C:\Users\gabri\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-22 16:26:33.738 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 16:26:33.738 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 16:26:33.741 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 16:26:33.742 +01:00 [INF] Hosting environment: Development
+2023-03-22 16:26:33.742 +01:00 [INF] Content root path: G:\Work\BlazorCourse\BookStoreApp.API\
+2023-03-22 16:26:34.321 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 16:26:34.464 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 145.1287ms
+2023-03-22 16:26:34.495 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 16:26:34.498 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 2.8847ms
+2023-03-22 16:26:34.746 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 16:26:34.757 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.8282ms
+2023-03-22 16:26:35.373 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 16:26:35.450 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 77.5304ms
+2023-03-22 16:28:36.460 +01:00 [INF] User profile is available. Using 'C:\Users\gabri\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-22 16:28:36.597 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 16:28:36.597 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 16:28:36.600 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 16:28:36.601 +01:00 [INF] Hosting environment: Development
+2023-03-22 16:28:36.601 +01:00 [INF] Content root path: G:\Work\BlazorCourse\BookStoreApp.API\
+2023-03-22 16:28:37.251 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 16:28:37.399 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 150.6026ms
+2023-03-22 16:28:37.436 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 16:28:37.439 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 2.9962ms
+2023-03-22 16:28:37.700 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 16:28:37.714 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 14.1125ms
+2023-03-22 16:28:38.296 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 16:28:38.386 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 90.3216ms
+2023-03-22 16:46:04.043 +01:00 [INF] User profile is available. Using 'C:\Users\gabri\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-22 16:46:04.190 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 16:46:04.191 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 16:46:04.194 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 16:46:04.194 +01:00 [INF] Hosting environment: Development
+2023-03-22 16:46:04.195 +01:00 [INF] Content root path: G:\Work\BlazorCourse\BookStoreApp.API\
+2023-03-22 16:46:04.329 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 16:46:04.490 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 163.9713ms
+2023-03-22 16:46:04.710 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 16:46:04.713 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 3.0869ms
+2023-03-22 16:46:04.734 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 16:46:04.746 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.7846ms
+2023-03-22 16:46:05.330 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 16:46:05.417 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 87.0069ms
+2023-03-22 16:59:57.760 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 16:59:57.904 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 16:59:57.931 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 16:59:58.842 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 16:59:59.536 +01:00 [INF] Executed DbCommand (46ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 16:59:59.561 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 16:59:59.568 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 1631.1844ms
+2023-03-22 16:59:59.570 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 16:59:59.574 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 1813.9572ms
+2023-03-22 17:00:39.467 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 17:00:39.469 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:00:39.470 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:00:39.509 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:00:39.518 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:00:39.520 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:00:39.521 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 50.0867ms
+2023-03-22 17:00:39.523 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:00:39.524 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 56.5267ms
+2023-03-22 17:01:03.906 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 17:01:03.909 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:03.909 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:03.923 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:01:03.928 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:01:03.930 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:01:03.931 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 20.226ms
+2023-03-22 17:01:03.932 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:03.933 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 27.1448ms
+2023-03-22 17:01:04.673 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 17:01:04.674 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:04.675 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:04.676 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:01:04.680 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:01:04.682 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:01:04.683 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 7.198ms
+2023-03-22 17:01:04.684 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:04.684 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 11.4685ms
+2023-03-22 17:01:04.833 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 17:01:04.834 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:04.834 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:04.836 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:01:04.838 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:01:04.841 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:01:04.842 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 6.5589ms
+2023-03-22 17:01:04.843 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:04.845 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 11.5838ms
+2023-03-22 17:01:04.994 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 17:01:04.995 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:04.996 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:04.997 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:01:05.000 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:01:05.003 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:01:05.004 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 7.1779ms
+2023-03-22 17:01:05.005 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:05.007 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 12.6384ms
+2023-03-22 17:01:05.149 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 17:01:05.150 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:05.151 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:05.152 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:01:05.154 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:01:05.155 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:01:05.156 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 4.5241ms
+2023-03-22 17:01:05.157 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:05.158 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 8.6815ms
+2023-03-22 17:01:05.318 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54
+2023-03-22 17:01:05.319 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:05.320 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:05.322 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:01:05.327 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:01:05.328 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:01:05.329 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 7.8418ms
+2023-03-22 17:01:05.330 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:05.331 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 54 - 401 - application/json;+charset=utf-8 13.0385ms
+2023-03-22 17:01:40.134 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/register application/json 98
+2023-03-22 17:01:40.135 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Register (BookStoreApp.API)'
+2023-03-22 17:01:40.139 +01:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(BookStoreApp.API.Models.User.UserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:40.153 +01:00 [WRN] User password validation failed: PasswordRequiresNonAlphanumeric;PasswordRequiresUpper.
+2023-03-22 17:01:40.154 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityError, Microsoft.Extensions.Identity.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2023-03-22 17:01:40.156 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Register (BookStoreApp.API) in 15.465ms
+2023-03-22 17:01:40.157 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Register (BookStoreApp.API)'
+2023-03-22 17:01:40.157 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/register application/json 98 - 400 - application/json;+charset=utf-8 23.5682ms
+2023-03-22 17:01:57.534 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 53
+2023-03-22 17:01:57.535 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:57.535 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:01:57.537 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:01:57.541 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:01:57.543 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:01:57.543 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 7.0941ms
+2023-03-22 17:01:57.544 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:01:57.545 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 53 - 401 - application/json;+charset=utf-8 11.2068ms
+2023-03-22 17:02:02.520 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 53
+2023-03-22 17:02:02.521 +01:00 [INF] Executing endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:02:02.522 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApp.API.Models.User.AuthResponse]] Login(BookStoreApp.API.Models.User.LoginUserDto) on controller BookStoreApp.API.Controllers.AuthController (BookStoreApp.API).
+2023-03-22 17:02:02.524 +01:00 [INF] Entity Framework Core 6.0.0 initialized 'BookStoreDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-03-22 17:02:02.526 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2023-03-22 17:02:02.529 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'BookStoreApp.API.Models.User.LoginUserDto'.
+2023-03-22 17:02:02.530 +01:00 [INF] Executed action BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API) in 6.6648ms
+2023-03-22 17:02:02.531 +01:00 [INF] Executed endpoint 'BookStoreApp.API.Controllers.AuthController.Login (BookStoreApp.API)'
+2023-03-22 17:02:02.532 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:7236/api/Auth/login application/json 53 - 401 - application/json;+charset=utf-8 11.6744ms
+2023-03-22 17:03:58.787 +01:00 [INF] User profile is available. Using 'C:\Users\gabri\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-22 17:03:58.932 +01:00 [INF] Now listening on: https://localhost:7236
+2023-03-22 17:03:58.932 +01:00 [INF] Now listening on: http://localhost:5174
+2023-03-22 17:03:58.935 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-22 17:03:58.936 +01:00 [INF] Hosting environment: Development
+2023-03-22 17:03:58.936 +01:00 [INF] Content root path: G:\Work\BlazorCourse\BookStoreApp.API\
+2023-03-22 17:03:59.493 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/index.html - -
+2023-03-22 17:03:59.670 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/index.html - - - 200 - text/html;charset=utf-8 179.3834ms
+2023-03-22 17:03:59.979 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - -
+2023-03-22 17:03:59.983 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 3.3887ms
+2023-03-22 17:04:00.007 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/_vs/browserLink - -
+2023-03-22 17:04:00.024 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 16.5189ms
+2023-03-22 17:04:00.571 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - -
+2023-03-22 17:04:00.671 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7236/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 100.7078ms

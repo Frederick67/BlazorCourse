@@ -6,6 +6,6 @@ namespace BookStoreApp.API.Data
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
-
+        public string NormalizedName { get; internal set; }
     }
 }

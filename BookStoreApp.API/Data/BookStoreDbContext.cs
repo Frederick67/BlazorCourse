@@ -54,9 +54,9 @@ public partial class BookStoreDbContext : IdentityDbContext<ApiUser>
                 {
                     Id = "377a5c55-a855-419c-93c5-b4bae9ac44e1",
                     Email = "admin@bookstore.com",
-                    //NormalizedName = "ADMIN@BOOKSTORE.COM",
+                    NormalizedEmail = "ADMIN@BOOKSTORE.COM",
                     UserName = "admin@bookstore.com",
-                    //NormalizedName = "ADMIN@BOOKSTORE.COM",
+                    NormalizedName = "ADMIN@BOOKSTORE.COM",
                     FirstName = "System",
                     LastName = "Admin",
                     PasswordHash = hasher.HashPassword(null, "P@ssword1")
@@ -65,9 +65,9 @@ public partial class BookStoreDbContext : IdentityDbContext<ApiUser>
                 {
                     Id = "c0ca56cb-6762-450c-b618-bf9219c28dbf",
                     Email = "user@bookstore.com",
-                    //NormalizedName = "USER@BOOKSTORE.COM"
+                    NormalizedEmail = "USER@BOOKSTORE.COM",
                     UserName = "user@bookstore.com",
-                    //NormalizedName = "USER@BOOKSTORE.COM"
+                    NormalizedName = "USER@BOOKSTORE.COM",
                     FirstName = "System",
                     LastName = "User",
                     PasswordHash = hasher.HashPassword(null, "P@ssword1")
