@@ -1,5 +1,6 @@
 ﻿@page "/user/register"
 @inject IClient httpClient
+@inject NavigationManager NavigationManager
 
 <h3>Register New Account</h3>
 
@@ -30,13 +31,24 @@
 </div>
 
 @code {
-        UserDto RegistrationModel = new UserDto();
+    UserDto RegistrationModel = new UserDto();
 
-        private async Task HandleRegistration()
+    private async Task HandleRegistration()
+    {
+        RegistrationModel.Role = "User";
+
+        try
         {
-            RegistrationModel.Role = "User";
-
             await httpClient.RegisterAsync(RegistrationModel);
+        }
+        catch (Exception ex)
+        {
+            
+        }
+
+
+
+            NavigationManager.NavigateTo("/user/login");
 
         }
 }
