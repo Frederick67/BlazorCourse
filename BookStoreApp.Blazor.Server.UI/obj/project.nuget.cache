@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "OPxeRM+IdHDgp9zIIHL+bnbi2HOcjnx+POF9r2MDChNad4MF06JO1ajMyTgWGeCMx2OApghzvvwt4aU40Zdp3g==",
+  "dgSpecHash": "sA8XGRF2JwQ3DZpITWiJHnQkk4bTY7/5D0bgpSrn7XpQke7/+qYfrd8yq2PLns3dEUsnkEavFpTsT04CjAoxCg==",
   "success": true,
   "projectFilePath": "G:\\Work\\BlazorCourse\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\gabri\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\blazored.localstorage\\4.3.0\\blazored.localstorage.4.3.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",

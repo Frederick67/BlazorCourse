@@ -1,6 +1,6 @@
 ﻿namespace BookStoreApp.API.Models.Book
 {
-    public class BookUpdateDto
+    public class BookUpdateDto : BaseDto
     {
         public string Title { get; set; }
         public string Image { get; set; }

@@ -35,7 +35,9 @@ namespace BookStoreApp.API.Controllers
               return NotFound();
           }
             var books = await _context.Books.ToListAsync();
-            var bookDtos = _mapper.Map<BookReadOnlyDto>(books);
+            var bookDtos = _mapper.Map<IEnumerable<BookReadOnlyDto>>(books);
+
+
             return Ok(bookDtos);
         }
 
@@ -57,13 +59,14 @@ namespace BookStoreApp.API.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> PutBook(int id, Book book)
+        public async Task<IActionResult> PutBook(int id, BookUpdateDto bookDto)
         {
-            if (id != book.Id)
+            if (id != bookDto.Id)
             {
                 return BadRequest();
             }
 
+            var book = _mapper.Map<Book>(bookDto);
             _context.Entry(book).State = EntityState.Modified;
 
             try

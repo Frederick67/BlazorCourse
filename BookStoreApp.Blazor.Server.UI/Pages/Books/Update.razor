@@ -1,0 +1,45 @@
+﻿@page "/books/update/{id:int}"
+@inject IBookService bookService
+@inject NavigationManager NavigationManager
+
+<h3>Update Book</h3>
+
+<EditForm Model="book" OnValidSubmit="UpdateBook">
+
+
+</EditForm>
+
+
+
+@code {
+
+    private BookUpdateDto book = new BookUpdateDto();
+    [Parameter]
+    public int id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await bookService.GetBookForUpdate(id);
+        if (response.Success)
+        {
+            book = response.Data;
+        }
+        
+    }
+    private async Task UpdateBook()
+    {
+        var response = await bookService.UpdateBook(id, book);
+        if (response.Success)
+        {
+            NavigationManager.NavigateTo("/books");
+        }
+        else
+        {
+            Console.WriteLine(response.Message);
+        }
+    }
+    private void backToList()
+    {
+        NavigationManager.NavigateTo("/books");
+    }
+
+}
