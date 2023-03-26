@@ -58,8 +58,12 @@ else
                         <td>@book.Title</td>
                         <td>@book.Price</td>
                         <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-primary" @onclick='() => NavigationManager.NavigateTo($"/books/update/{book.Id}")'>
+                                Edit
+                            </button>
+                            <button class="btn btn-danger" @onclick='() => NavigationManager.NavigateTo($"/books/delete/{book.Id}")'>
+                                Delete
+                            </button>
                         </td>
                     </tr>
                 }

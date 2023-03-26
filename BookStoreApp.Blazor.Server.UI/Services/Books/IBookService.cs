@@ -14,6 +14,8 @@ namespace BookStoreApp.Blazor.Server.UI.Services.Books
 
         Task<Response<int>> UpdateBook(int id, BookUpdateDto bookUpdateDto);
 
+        Task<Response<int>> DeleteBook(int id);
+
 
     }
 }

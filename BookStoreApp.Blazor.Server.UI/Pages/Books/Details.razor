@@ -1,0 +1,85 @@
+﻿@page "/books/details/{id:int}"
+@inject IBookService bookService
+@inject NavigationManager NavigationManager
+
+<h3>Details</h3>
+
+@if (Book == null)
+{
+    <div>
+        <p>Loading...</p>
+    </div>
+}
+else
+{
+    <EditForm Model="Book" OnValidSubmit="EditBook">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group">
+            <label for="Title">Title</label>
+            <InputText class="form-control" id="Title" @bind-Value="Book.Title" />
+        </div>
+        <div class="form-group">
+            <label for="Title">Year</label>
+            <InputNumber class="form-control" id="Title" @bind-Value="Book.Year" />
+        </div>
+        <div class="form-group">
+            <label for="Title">ISBN</label>
+            <InputText class="form-control" id="Title" @bind-Value="Book.Isbn" />
+        </div>
+        <div class="form-group">
+            <label for="Price">Summary</label>
+            <InputTextArea class="form-control" id="Price" @bind-Value="Book.Summary" />
+        </div>
+        <div class="form-group">
+            <label for="Price">Price</label>
+            <InputNumber class="form-control" id="Price" @bind-Value="Book.Price" />
+        </div>
+        <div class="form-group">
+            <label for="Description">Image</label>
+            <InputTextArea class="form-control" id="Image" @bind-Value="Book.Image" />
+        </div>
+        <button class="btn btn-primary" type="submit">Edit</button>
+        
+
+
+    </EditForm>
+
+    <button class="btn btn-danger" @onclick="() => DeleteBook()">Delete</button>
+    <button class="btn btn-primary" @onclick="() => Back()">Back</button>
+
+}
+
+
+
+
+
+
+@code {
+
+private BookReadOnlyDto Book = new BookReadOnlyDto();
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await bookService.GetBook(id);
+        if (response.Success)
+        {
+            Book = response.Data;
+        }
+    }
+    [Parameter]
+    public int id { get; set; }
+    private void EditBook()
+    {
+        NavigationManager.NavigateTo($"/books/update/{id}");
+    }
+    private void DeleteBook()
+    {
+        NavigationManager.NavigateTo($"/books/delete/{id}");
+    }
+
+    private void Back()
+    {
+        NavigationManager.NavigateTo("/books");
+    }
+
+}

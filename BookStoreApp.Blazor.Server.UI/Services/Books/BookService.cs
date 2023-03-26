@@ -34,6 +34,23 @@ namespace BookStoreApp.Blazor.Server.UI.Services.Books
             return response;
         }
 
+        public async Task<Response<int>> DeleteBook(int id)
+        {
+            Response<int> response = new Response<int>() { Success = true };
+
+            try
+            {
+                await GetBearerToken();
+                await _client.BooksDELETEAsync(id);
+            }
+            catch (ApiException ex)
+            {
+                response = ConvertApiExceptions<int>(ex);
+            }
+            return response;
+
+        }
+
         public async Task<Response<BookReadOnlyDto>> GetBook(int id)
         {
             Response<BookReadOnlyDto> response = new Response<BookReadOnlyDto>();
@@ -59,7 +76,7 @@ namespace BookStoreApp.Blazor.Server.UI.Services.Books
 
         public async Task<Response<BookUpdateDto>> GetBookForUpdate(int id)
         {
-            Response<BookUpdateDto> response = new Response<BookUpdateDto>();
+            Response<BookUpdateDto> response;
 
             try
             {

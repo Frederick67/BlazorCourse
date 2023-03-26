@@ -28,6 +28,11 @@
                     <td>@book.Price</td>
     
                     <td>
+                        <button class="btn btn-primary" @onclick='() => DetailsBook(book.Id)'>
+
+                            Details
+
+                        </button>
     
                         <button class="btn btn-primary" @onclick='() => EditBook(book.Id)'>
     
@@ -67,8 +72,13 @@
     }
     private void EditBook(int id)
     {
-        NavigationManager.NavigateTo($"/books/edit/{id}");
+        NavigationManager.NavigateTo($"/books/update/{id}");
     }
+    private void DetailsBook(int id)
+    {
+        NavigationManager.NavigateTo($"/books/details/{id}");
+    }
+
     private void CreateBook()
     {
         NavigationManager.NavigateTo($"/books/create");

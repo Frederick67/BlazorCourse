@@ -4,16 +4,45 @@
 
 <h3>Update Book</h3>
 
-<EditForm Model="book" OnValidSubmit="UpdateBook">
+<EditForm Model="Book" OnValidSubmit="UpdateBook">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <InputText class="form-control" id="Title" @bind-Value="Book.Title" />
+    </div>
+    <div class="form-group">
+        <label for="Title">Year</label>
+        <InputNumber class="form-control" id="Title" @bind-Value="Book.Year" />
+    </div>
+    <div class="form-group">
+        <label for="Title">ISBN</label>
+        <InputText class="form-control" id="Title" @bind-Value="Book.Isbn" />
+    </div>
+    <div class="form-group">
+        <label for="Price">Summary</label>
+        <InputTextArea class="form-control" id="Price" @bind-Value="Book.Summary" />
+    </div>
+    <div class="form-group">
+        <label for="Price">Price</label>
+        <InputNumber class="form-control" id="Price" @bind-Value="Book.Price" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Image</label>
+        <InputTextArea class="form-control" id="Image" @bind-Value="Book.Image" />
+    </div>
+    <button class="btn btn-primary" type="submit">Edit</button>
 
 
 </EditForm>
+
+<button class="btn btn-danger" @onclick="() => backToList()">Back</button>
 
 
 
 @code {
 
-    private BookUpdateDto book = new BookUpdateDto();
+    private BookUpdateDto Book = new BookUpdateDto();
     [Parameter]
     public int id { get; set; }
     protected override async Task OnInitializedAsync()
@@ -21,13 +50,13 @@
         var response = await bookService.GetBookForUpdate(id);
         if (response.Success)
         {
-            book = response.Data;
+            Book = response.Data;
         }
         
     }
     private async Task UpdateBook()
     {
-        var response = await bookService.UpdateBook(id, book);
+        var response = await bookService.UpdateBook(id, Book);
         if (response.Success)
         {
             NavigationManager.NavigateTo("/books");

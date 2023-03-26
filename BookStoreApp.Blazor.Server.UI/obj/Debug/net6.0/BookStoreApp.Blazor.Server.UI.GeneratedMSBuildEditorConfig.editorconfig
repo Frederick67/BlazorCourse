@@ -44,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Work/BlazorCourse/BookStoreApp.Blazor.Server.UI/Pages/Books/Delete.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcRGVsZXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Work/BlazorCourse/BookStoreApp.Blazor.Server.UI/Pages/Books/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Work/BlazorCourse/BookStoreApp.Blazor.Server.UI/Pages/Books/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va3NcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
