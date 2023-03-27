@@ -16,6 +16,8 @@ jobs:
       with:
         dotnet-version: 3.1
             # publishes Blazor project to the release-folder
+    - name: change folder
+      run: cd BookStoreApp.Blazor.Server.UI
     - name: Publish .NET Core Project
       run: dotnet publish BookStoreApp.Blazor.Server.UI.csproj -c Release -o release --nologo
     - name: Commit wwwroot to GitHub Pages
