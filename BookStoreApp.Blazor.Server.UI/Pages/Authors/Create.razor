@@ -1,6 +1,6 @@
 ﻿@page "/authors/create"
 @inject IAuthorService authorService
-@inject RemoteNavigationManagerNavigationManager
+@inject NavigationManager NavigationManager
 
 <h3>Create New Author</h3>
 <EditForm Model="Author" OnValidSubmit="HandleCreate">
