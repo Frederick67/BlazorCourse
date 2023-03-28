@@ -6,9 +6,13 @@ using BookStoreApp.Blazor.Server.UI.Services.Authentication;
 using BookStoreApp.Blazor.Server.UI.Services.Authors;
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 using BookStoreApp.Blazor.Server.UI.Services.Books;
+using ElectronNET.API;
+using ElectronNET.API.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Hosting;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +27,12 @@ builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<ApiAuthenticantionStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(p => p.GetRequiredService<ApiAuthenticantionStateProvider>());
+//create electron window
+
+
+
+
+
 
 var app = builder.Build();
 
