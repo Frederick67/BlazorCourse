@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj": {}
+    "G:\\Work\\BlazorCourse2\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj": {
+    "G:\\Work\\BlazorCourse2\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
+        "projectUniqueName": "G:\\Work\\BlazorCourse2\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
         "projectName": "BookStoreApp.Blazor.Server.UI",
-        "projectPath": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
-        "packagesPath": "C:\\Users\\Kap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.Blazor.Server.UI\\obj\\",
+        "projectPath": "G:\\Work\\BlazorCourse2\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "G:\\Work\\BlazorCourse2\\BookStoreApp.Blazor.Server.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "G:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\RazorLibrary\\RazorLibrary.csproj": {
-                "projectPath": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\RazorLibrary\\RazorLibrary.csproj"
+              "G:\\Work\\BlazorCourse2\\RazorLibrary\\RazorLibrary.csproj": {
+                "projectPath": "G:\\Work\\BlazorCourse2\\RazorLibrary\\RazorLibrary.csproj"
               }
             }
           }
@@ -93,20 +93,20 @@
         }
       }
     },
-    "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\RazorLibrary\\RazorLibrary.csproj": {
+    "G:\\Work\\BlazorCourse2\\RazorLibrary\\RazorLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\RazorLibrary\\RazorLibrary.csproj",
+        "projectUniqueName": "G:\\Work\\BlazorCourse2\\RazorLibrary\\RazorLibrary.csproj",
         "projectName": "RazorLibrary",
-        "projectPath": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\RazorLibrary\\RazorLibrary.csproj",
-        "packagesPath": "C:\\Users\\Kap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\RazorLibrary\\obj\\",
+        "projectPath": "G:\\Work\\BlazorCourse2\\RazorLibrary\\RazorLibrary.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "G:\\Work\\BlazorCourse2\\RazorLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "G:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

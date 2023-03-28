@@ -22,7 +22,7 @@ namespace BookStoreForm
             var serviceCollection = new ServiceCollection();
 
             serviceCollection.AddWindowsFormsBlazorWebView();
-            serviceCollection.AddBlazorWebView();
+            //serviceCollection.AddBlazorWebView();
             serviceCollection.AddServerSideBlazor();
             serviceCollection.AddBlazoredLocalStorage();
             serviceCollection.AddAuthenticationCore();
