@@ -567,3 +567,4 @@ G:\Work\BlazorCourse\BookStoreApp.API\obj\Debug\net6.0\BookStoreApp.API.pdb
 G:\Work\BlazorCourse\BookStoreApp.API\obj\Debug\net6.0\BookStoreApp.API.genruntimeconfig.cache
 G:\Work\BlazorCourse\BookStoreApp.API\obj\Debug\net6.0\ref\BookStoreApp.API.dll
 G:\Work\BlazorCourse\BookStoreApp.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Kap\source\repos\BookStoreApp.API\BookStoreApp.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
