@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -20,12 +21,17 @@ namespace test3
     public partial class Form1 : MetroSetForm
     {
 
+        public string downloadPath { get; set; }
+        public string defaultPrinter { get; set; }
+
         public Form1()
         {
             InitializeComponent();
             InitializeWebView();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            downloadPath = @"C:\Users\Kap\Desktop";
+            defaultPrinter = PrinterSettings.InstalledPrinters.Cast<string>().ToArray().First();
 
             //add title
             this.Text = "Fattutto";
@@ -40,7 +46,9 @@ namespace test3
             };
             await webView21.EnsureCoreWebView2Async();
             await webView21.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync("console.log('WebView2 is ready');");
+            //webView21.Source = new Uri("https://developer.microsoft.com/en-us/microsoft-edge/webview2/");
             webView21.Source = new Uri("https://app.fattutto.com/");
+            webView21.CoreWebView2.Profile.DefaultDownloadFolderPath = downloadPath;
             changeColor();
         }
 
@@ -82,6 +90,12 @@ namespace test3
             }
         }
 
+        private void CoreWebView2_DownloadStarting(object sender, CoreWebView2DownloadStartingEventArgs e)
+        {
+            var downloadOperation = e.DownloadOperation;
+            e.ResultFilePath = @"C:\Users\Kap\Desktop\mydownloadedfile.zip";
+        }
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -92,6 +106,23 @@ namespace test3
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            //open form Settings
+            Settings settings = new Settings(downloadPath, defaultPrinter);
+            settings.Show();
+
+            //when settings close call the function updateSettings(this)
+            settings.FormClosed += new FormClosedEventHandler((sender, e) => updateSettings(sender, e, settings));
+        }
+
+        private void updateSettings(object sender, FormClosedEventArgs e, Settings settings)
+        {
+            Console.WriteLine("Ciao");
+            settings.updateSettings(this);
+
+        }
     }
 }
 

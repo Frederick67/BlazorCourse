@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Work\\BlazorCourse2\\BookStoreApp.API\\BookStoreApp.API.csproj": {}
+    "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.API\\BookStoreApp.API.csproj": {}
   },
   "projects": {
-    "G:\\Work\\BlazorCourse2\\BookStoreApp.API\\BookStoreApp.API.csproj": {
+    "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.API\\BookStoreApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Work\\BlazorCourse2\\BookStoreApp.API\\BookStoreApp.API.csproj",
+        "projectUniqueName": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.API\\BookStoreApp.API.csproj",
         "projectName": "BookStoreApp.API",
-        "projectPath": "G:\\Work\\BlazorCourse2\\BookStoreApp.API\\BookStoreApp.API.csproj",
-        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "G:\\Work\\BlazorCourse2\\BookStoreApp.API\\obj\\",
+        "projectPath": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.API\\BookStoreApp.API.csproj",
+        "packagesPath": "C:\\Users\\Kap\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\BookStoreApp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "G:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kap\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

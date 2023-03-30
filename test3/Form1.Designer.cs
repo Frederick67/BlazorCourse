@@ -35,6 +35,7 @@ namespace test3
             pictureBox1 = new PictureBox();
             iconButton1 = new IconButton();
             iconButton2 = new IconButton();
+            iconButton3 = new IconButton();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -47,7 +48,7 @@ namespace test3
             webView21.DefaultBackgroundColor = Color.White;
             webView21.Location = new Point(0, 41);
             webView21.Name = "webView21";
-            webView21.Size = new Size(1776, 629);
+            webView21.Size = new Size(953, 396);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
@@ -59,7 +60,7 @@ namespace test3
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(1676, 5);
+            metroSetControlBox1.Location = new Point(853, 5);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
             metroSetControlBox1.MaximizeHoverForeColor = Color.Gray;
@@ -79,7 +80,7 @@ namespace test3
             // 
             // pictureBox1
             // 
-            pictureBox1.ImageLocation = "G:\\Work\\BlazorCourse2\\test3\\fattutto-logo.png";
+            pictureBox1.ImageLocation = "C:\\Users\\Kap\\source\\repos\\BookStoreApp.API\\test3\\fattutto-logo.png";
             pictureBox1.Location = new Point(5, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(59, 35);
@@ -132,6 +133,28 @@ namespace test3
             iconButton2.UseVisualStyleBackColor = false;
             iconButton2.Click += iconButton2_Click;
             // 
+            // iconButton3
+            // 
+            iconButton3.BackColor = Color.Black;
+            iconButton3.FlatAppearance.BorderColor = Color.Black;
+            iconButton3.FlatStyle = FlatStyle.Flat;
+            iconButton3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton3.ForeColor = Color.White;
+            iconButton3.IconChar = IconChar.Gear;
+            iconButton3.IconColor = Color.White;
+            iconButton3.IconFont = IconFont.Auto;
+            iconButton3.IconSize = 16;
+            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton3.Location = new Point(734, 0);
+            iconButton3.Name = "iconButton3";
+            iconButton3.Size = new Size(113, 35);
+            iconButton3.TabIndex = 7;
+            iconButton3.Text = "Impostazioni";
+            iconButton3.TextAlign = ContentAlignment.MiddleRight;
+            iconButton3.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton3.UseVisualStyleBackColor = false;
+            iconButton3.Click += iconButton3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
@@ -139,7 +162,8 @@ namespace test3
             BackColor = Color.Transparent;
             BackgroundColor = Color.Black;
             BorderColor = Color.White;
-            ClientSize = new Size(1775, 671);
+            ClientSize = new Size(952, 438);
+            Controls.Add(iconButton3);
             Controls.Add(iconButton2);
             Controls.Add(iconButton1);
             Controls.Add(pictureBox1);
@@ -161,6 +185,7 @@ namespace test3
         private PictureBox pictureBox1;
         private IconButton iconButton1;
         private IconButton iconButton2;
+        private IconButton iconButton3;
         //private Button button1;
         //private Button button2;
     }
